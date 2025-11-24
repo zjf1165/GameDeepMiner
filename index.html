@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Gemini Deep Miner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ground: '#3d2817',
+              stone: '#5a5a5a',
+              deep: '#1a1a1a',
+              sky: '#87CEEB',
+            },
+            animation: {
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shake': 'shake 0.2s ease-in-out infinite',
+              'squash': 'squash 0.2s ease-in-out',
+              'float-up': 'float-up 1.5s ease-out forwards',
+              'fly-to-bag': 'fly-to-bag 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+              'bubble': 'bubble 2s infinite linear',
+              'mine-swing': 'mine-swing 0.6s cubic-bezier(0.3, 0.2, 0.1, 1.0) infinite',
+              'shimmer': 'shimmer 2s infinite linear',
+            },
+            keyframes: {
+              shake: {
+                '0%, 100%': { transform: 'translateX(0)' },
+                '25%': { transform: 'translateX(-2px) rotate(-2deg)' },
+                '75%': { transform: 'translateX(2px) rotate(2deg)' },
+              },
+              squash: {
+                '0%, 100%': { transform: 'scale(1, 1)' },
+                '50%': { transform: 'scale(1.2, 0.8)' },
+              },
+              'float-up': {
+                '0%': { transform: 'translate(-50%, -50%) scale(0.8)', opacity: '0' },
+                '20%': { transform: 'translate(-50%, -150%) scale(1.2)', opacity: '1' },
+                '100%': { transform: 'translate(-50%, -300%) scale(1)', opacity: '0' },
+              },
+              'fly-to-bag': {
+                '0%': { 
+                  transform: 'translate(var(--start-x), var(--start-y)) scale(1)', 
+                  opacity: '1' 
+                },
+                '80%': { 
+                  transform: 'translate(var(--target-x), var(--target-y)) scale(0.5)', 
+                  opacity: '0.8' 
+                },
+                '100%': { 
+                  transform: 'translate(var(--target-x), var(--target-y)) scale(0)', 
+                  opacity: '0' 
+                }
+              },
+              bubble: {
+                '0%': { bottom: '-10%', opacity: '0', transform: 'translateX(0)' },
+                '50%': { opacity: '1' },
+                '100%': { bottom: '110%', opacity: '0', transform: 'translateX(10px)' },
+              },
+              'mine-swing': {
+                '0%': { transform: 'rotate(0deg)' },
+                '30%': { transform: 'rotate(-45deg)' }, /* Wind up */
+                '45%': { transform: 'rotate(100deg)' }, /* Strike! */
+                '60%': { transform: 'rotate(100deg)' }, /* Hold */
+                '100%': { transform: 'rotate(0deg)' }, /* Return */
+              },
+              shimmer: {
+                '0%': { opacity: '0.5', transform: 'scale(0.8)' },
+                '50%': { opacity: '1', transform: 'scale(1.2)' },
+                '100%': { opacity: '0.5', transform: 'scale(0.8)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #e5e5e5;
+        overflow: hidden;
+        touch-action: none;
+      }
+      /* Hide scrollbar for game container */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .liquid-bg {
+        background: linear-gradient(180deg, rgba(56,189,248,0.8) 0%, rgba(14,165,233,0.9) 100%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
